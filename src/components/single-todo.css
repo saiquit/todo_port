@@ -1,0 +1,8 @@
+.edit-pen{
+font-size: 12px;
+border: .5px solid rgb(163, 163, 163);
+padding: 3px;
+margin: 10px;
+border-radius: 5px;
+cursor: pointer;
+}
