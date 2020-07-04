@@ -3,7 +3,7 @@ import { Form, Button, Input } from "reactstrap";
 
 const AddTodo = ({ handleChange, handleSubmit, inp }) => {
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} >
       <div className="d-flex p-5">
         <div className="col-10">
           <Input placeholder="Add todo" value={inp || ''} onChange={handleChange} />
