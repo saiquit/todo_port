@@ -1,10 +1,11 @@
 import React from "react";
 import { Form, Button, Input } from "reactstrap";
+import { motion } from 'framer-motion'
 
 const AddTodo = ({ handleChange, handleSubmit, inp }) => {
   return (
     <Form onSubmit={handleSubmit} >
-      <div className="d-flex p-5">
+      <motion.div className="d-flex p-5" initial={{scale: 0}} animate={{scale: 1}} >
         <div className="col-10">
           <Input placeholder="Add todo" value={inp || ''} onChange={handleChange} />
         </div>
@@ -13,7 +14,7 @@ const AddTodo = ({ handleChange, handleSubmit, inp }) => {
             Add
           </Button>
         </div>
-      </div>
+      </motion.div>
     </Form>
   );
 };

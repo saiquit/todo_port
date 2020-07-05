@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Table, Alert } from "reactstrap";
 import AddTodo from "./input";
 import SingleTodo from "./SingleTodo";
-import { Persist } from 'react-persist'
+import { Persist } from "react-persist";
+import { motion } from "framer-motion";
 
 const TodoList = () => {
   const [iniTodo, setIniTodo] = useState([]);
@@ -62,7 +63,11 @@ const TodoList = () => {
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody>
+          <motion.tbody
+            initial={{ scale: 0, y: "100vh" }}
+            animate={{ scale: 1, y: "0" }}
+            transition={{ duration: 1, easings: "easeIn" }}
+          >
             {iniTodo.map((todo, idx) => (
               <SingleTodo
                 key={idx}
@@ -73,18 +78,18 @@ const TodoList = () => {
                 handleDelete={handleDelete}
               />
             ))}
-          </tbody>
+          </motion.tbody>
         </Table>
       ) : (
         <Alert className="text-center mx-3">Please add your Todos</Alert>
       )}
 
-    <Persist 
-          name="todos" 
-          data={iniTodo} 
-          debounce={500} 
-          onMount={data => setIniTodo(data)}
-        />
+      <Persist
+        name="todos"
+        data={iniTodo}
+        debounce={500}
+        onMount={data => setIniTodo(data)}
+      />
     </>
   );
 };
